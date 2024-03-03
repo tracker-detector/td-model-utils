@@ -26,7 +26,7 @@ func (mh *ModelHandler) PostModel(c *fiber.Ctx) error {
 
 	modelName := c.Params("modelName")
 
-	modelDir := filepath.Join("./"+env.GetModelPath(), modelName)
+	modelDir := filepath.Join(env.GetModelPath(), modelName)
 	if _, err := os.Stat(modelDir); os.IsNotExist(err) {
 		os.MkdirAll(modelDir, os.ModePerm)
 	}
@@ -61,6 +61,6 @@ func (mh *ModelHandler) PostModel(c *fiber.Ctx) error {
 }
 
 func (mh *ModelHandler) RegisterRoutes() {
-	mh.app.Static("/models", "./"+env.GetModelPath())
+	mh.app.Static("/models", env.GetModelPath())
 	mh.app.Post("/models/:modelName", mh.PostModel)
 }

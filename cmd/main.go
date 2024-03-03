@@ -8,6 +8,7 @@ import (
 
 func main() {
 	app := fiber.New()
+	app.Static("/static", "./static")
 	handlers.NewModelHandler(app).RegisterRoutes()
 	handlers.NewHomeHandler(app).RegisterRoutes()
 	app.Listen(env.GetPort())
