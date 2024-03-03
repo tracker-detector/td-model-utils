@@ -7,7 +7,9 @@ import (
 )
 
 func main() {
-	app := fiber.New()
+	app := fiber.New(fiber.Config{
+		BodyLimit: 8 * 1024 * 1024 * 1024, // 8 GB
+	})
 	app.Static("/static", "./static")
 	handlers.NewModelHandler(app).RegisterRoutes()
 	handlers.NewHomeHandler(app).RegisterRoutes()
