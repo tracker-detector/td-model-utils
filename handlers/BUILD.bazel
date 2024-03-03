@@ -1,0 +1,19 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "handlers",
+    srcs = [
+        "home_handler.go",
+        "model_handler.go",
+        "util.go",
+    ],
+    importpath = "github.com/Tracking-Detector/td-model-utils/handlers",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//env",
+        "//views",
+        "@com_github_a_h_templ//:templ",
+        "@com_github_gofiber_fiber_v2//:fiber",
+        "@com_github_gofiber_fiber_v2//middleware/adaptor",
+    ],
+)

@@ -1,0 +1,12 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "views",
+    srcs = [
+        "manual_templ.go",
+        "wrapper_templ.go",
+    ],
+    importpath = "github.com/Tracking-Detector/td-model-utils/views",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_a_h_templ//:templ"],
+)
