@@ -5,9 +5,9 @@ import "os"
 func GetModelPath() string {
 	env := os.Getenv("MODEL_PATH")
 	if env == "" {
-		return "models"
+		return "/models"
 	}
-	return env
+	return "/" + env
 }
 
 func GetPort() string {
