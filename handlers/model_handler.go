@@ -45,7 +45,6 @@ func (mh *ModelHandler) PostModel(c *fiber.Ctx) error {
 	if err := os.WriteFile(modelJSONFile, modelJSONContent, 0644); err != nil {
 		return err
 	}
-
 	weightsFile := filepath.Join(modelDir, "model.weights.bin")
 	weights, err := form.File["model.weights.bin"][0].Open()
 	if err != nil {
@@ -53,7 +52,16 @@ func (mh *ModelHandler) PostModel(c *fiber.Ctx) error {
 	}
 	defer weights.Close()
 
-	if err := os.WriteFile(weightsFile, modelJSONContent, 0644); err != nil {
+	// Create the output file
+	outputFile, err := os.Create(weightsFile)
+	if err != nil {
+		return err
+	}
+	defer outputFile.Close()
+
+	// Copy the contents of the uploaded file to the output file
+	_, err = io.Copy(outputFile, weights)
+	if err != nil {
 		return err
 	}
 
