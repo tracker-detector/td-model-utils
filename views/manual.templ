@@ -1,0 +1,46 @@
+package views
+
+templ Manual() {
+	@Wrapper() {
+		<div>
+			<div>
+				<div class="container grid max-w-3xl gap-6 px-4 pb-10 mx-auto lg:gap-10 lg:px-6">
+					<div class="space-y-2">
+						<h1 class="text-3xl font-bold tracking-tighter sm:text-5xl">
+							Manual
+						</h1>
+						<p class="max-w-[600px] text-gray-500 md:text-xl/relaxed dark:text-gray-400">
+							Here you see that the tool is running and under which port it is available for you.
+						</p>
+					</div>
+					<div class="space-y-8">
+						<div class="space-y-2">
+							<h2 class="text-2xl font-bold tracking-tight">
+								Introduction
+							</h2>
+							<p class="max-w-prose text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+								You can use this tool to export or import models from the train-on-surf web extension. Primary this can be used to 
+								conduct experiments and test the models outside the web extension environment.
+							</p>
+						</div>
+						<div class="space-y-2">
+							<h2 class="text-2xl font-bold tracking-tight">Usage</h2>
+							<p class="max-w-prose text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+								To use this backend, you first need to map a volume from you machine into the docker container. This can be done by 
+								mapping any folder you have with read and write privelege into the container under models/. 
+							</p>
+						</div>
+						<div class="space-y-2">
+							<h2 class="text-2xl font-bold tracking-tight">
+								Posting the Model
+							</h2>
+							<p class="max-w-prose text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+								Now you just need to adjust the domain in the extension to point to your server and click on save model.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+}
